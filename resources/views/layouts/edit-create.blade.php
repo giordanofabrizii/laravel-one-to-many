@@ -22,6 +22,19 @@
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
+                    <div class="form-group">
+                        <label for="type_id">Project Type</label>
+                        <select name="type_id" id="type_id" class="form-control">
+                            @foreach ($types as $type)
+                                <option
+                                {{ ($type->id == old("type_id", $project->type_id)) ? "selected" : ""}}
+                                value="{{$type->id}}">{{ $type->name }} </option>
+                            @endforeach
+                        </select>
+                        @error('image')
+                            <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
                     <button type="submit" class="btn btn-primary mt-2">@yield('name')</button>
                 </form>
             </div>

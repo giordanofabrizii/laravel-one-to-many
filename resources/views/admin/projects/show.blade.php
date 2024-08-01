@@ -9,8 +9,10 @@
     <div class="container">
         <div class="row">
             <article class="col-12">
+                @dd($project)
                 <img src="{{$project->image}}" alt="">
                 <h1>{{ $project->title }} </h1>
+                <h3>{{ $project->type->name }}</h3>
                 <a class="btn btn-warning" href="{{route('admin.projects.edit',compact('project'))}}">
                     Edit
                 </a>

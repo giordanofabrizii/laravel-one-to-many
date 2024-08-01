@@ -17,7 +17,7 @@
                     </div>
                     <div class="form-group">
                         <label for="color">color Url</label>
-                        <input type="text" class="form-control" name="color" id="color" placeholder="Enter url" value="{{ old('color', $type->color) }}">
+                        <input type="color" class="form-control" name="color" id="color" placeholder="Enter url" value="{{ old('color', $type->color) }}">
                         @error('color')
                             <div class="alert alert-danger">{{ $message }}</div>
                         @enderror

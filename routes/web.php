@@ -23,5 +23,8 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->name('admin.')->prefix('admin/')->group(function(){
-    Route::resource("/projects",AdminProjectsController::class);
+    Route::get('projects/deleted', [AdminProjectsController::class, 'deleted'])->name('projects.deleted');
+    Route::patch('projects/{project}/restore', [AdminProjectsController::class, 'restore'])->name('project.restore');
+    Route::delete('projects/{project}/permdelete', [AdminProjectsController::class, 'permdelete'])->name('project.permdelete');
+    Route::resource("projects",AdminProjectsController::class);
 });

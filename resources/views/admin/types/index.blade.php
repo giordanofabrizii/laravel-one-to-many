@@ -4,11 +4,11 @@
     <div class="container">
         <div class="row">
             <div class="col-12 px-4 py-2 d-flex justify-content-end">
-                <a class="mx-2" href="{{ Route('admin.projects.deleted') }}">
+                <a class="mx-2" href="{{ Route('admin.types.deleted') }}">
                     <button class="btn btn-secondary">Bin</button>
                 </a>
-                <a href="{{ Route('admin.projects.create') }}">
-                    <button class="btn btn-primary">New Project</button>
+                <a href="{{ Route('admin.types.create') }}">
+                    <button class="btn btn-primary">New type</button>
                 </a>
             </div>
         </div>
@@ -18,23 +18,21 @@
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">Image Url</th>
-                        <th scope="col">Type</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Color</th>
                         <th scope="col">Buttons</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($projects as $project)
+                    @foreach ($types as $type)
                         <tr>
                             <th scope="row">{{ $loop->iteration }}</th>
-                            <td>{{ $project->title }}</td>
-                            <td>{{ $project->image }}</td>
-                            <td>{{ $project->type->name }}</td>
+                            <td>{{ $type->name }}</td>
+                            <td>{{ $type->color }}</td>
                             <td>
-                                <a class="btn btn-primary" href="{{ Route('admin.projects.show', compact('project')) }}">Show</a>
-                                <a class="btn btn-warning" href="{{route('admin.projects.edit',compact('project'))}}">Edit</a>
-                                <form id="delete-form" class="d-inline" action="{{route('admin.projects.destroy',$project)}}" method="POST" project_title="{{$project->title}}">
+                                <a class="btn btn-primary" href="{{ Route('admin.types.show', compact('type')) }}">Show</a>
+                                <a class="btn btn-warning" href="{{route('admin.types.edit',compact('type'))}}">Edit</a>
+                                <form id="delete-form" class="d-inline" action="{{route('admin.types.destroy',$type)}}" method="POST" type_title="{{$type->name}}">
                                     @method('DELETE')
                                     @csrf
 

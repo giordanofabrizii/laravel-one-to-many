@@ -24,6 +24,8 @@ class UpdateProjectRequest extends FormRequest
         return [
             'title' => 'required',
             'image' => 'required',
+            'type_id' => 'required',
+
         ];
     }
     public function messages(){
@@ -31,6 +33,8 @@ class UpdateProjectRequest extends FormRequest
         return [
             'title.required' => 'Il campo del nome non puo essere vuoto!',
             'image.required' => 'Inserire un immagine',
+            'type_id.required' => 'Inserire un tipo',
+
         ];
     }
 }
